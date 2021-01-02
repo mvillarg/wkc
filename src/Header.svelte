@@ -40,7 +40,7 @@
         font-style: normal;
         font-display: swap; /* Read next point */
         unicode-range: U+000-5FF; /* Download only latin glyphs */
-        src: local('Faster'), url('assets/FasterOne-Regular.ttf') format('truetype');
+        src: local('Faster'), url('/assets/FasterOne-Regular.ttf') format('truetype');
     }
 
 	h1 {
