@@ -1,11 +1,13 @@
-# World Kart Championship
+# Welcome to World Kart Championship
 
-This is a concept project developed for DevAway_ using [Svelte](https://svelte.dev).
+This is a concept web-app developed for DevAway_ using [Svelte](https://svelte.dev).
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+It can be accessed directly from [Github preview](https://htmlpreview.github.io/?https://github.com/mvillarg/world-kart-champs/blob/master/public/index.html).
+
+~Miki
 
 
-## Get started
+## Deploy locally (NodeJS required)
 
 Install the dependencies...
 
@@ -20,6 +22,8 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see the app running.
+
+*Note that you will need to have [Node.js](https://nodejs.org) installed.*
 
 
 ## Building and running in production mode
