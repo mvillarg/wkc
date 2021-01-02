@@ -29,10 +29,19 @@
 <!-- <p transition:fix(fade)="{{ duration: 2000 }}">hola</p> -->
 
 <style>
-    @font-face {
+    /*@font-face {
   		font-family: 'FasterFont';
   		src: url('/assets/FasterOne-Regular.ttf') format('truetype');
-	}
+	}*/
+
+    @font-face {
+        font-family: 'Faster';
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap; /* Read next point */
+        unicode-range: U+000-5FF; /* Download only latin glyphs */
+        src: local('Faster'), url('assets/FasterOne-Regular.ttf') format('truetype');
+    }
 
 	h1 {
         display: inline-block;
@@ -41,7 +50,7 @@
 		font-size: 4em;
 		font-weight: 100;
         font-style: normal;
-		font-family: FasterFont;
+		font-family: Faster;
         margin-top: 0.25em;
 	}
 
