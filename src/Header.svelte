@@ -1,32 +1,31 @@
 <script>
-    import { fly } from 'svelte/transition';
+    import { fade, fly } from 'svelte/transition';
 
-    export let fullTitle;
+    export let longTitle;
     export let shortTitle;
 
-    let titleWords = fullTitle.split(' ');
-    let titleChars = shortTitle.split('');
-    let capitals = [];
+    const titleWords = longTitle.split(' ');
+    const titleChars = shortTitle.split('');
+    const capitalsFull = [];
+    const capitalsShort = [];
+    const space = '\xa0\xa0\xa0'; // JS's '\xa0' == &nbsp in HTML
 
-    titleChars.forEach( (item, index) => { capitals.push({c: item, x: (index+1) * -100}) });
-
-    console.log(titleChars);
+    titleWords.forEach( (item, index) => { capitalsFull.push({c: item, x: (index+1) * -100}) });
+    titleChars.forEach( (item, index) => { capitalsShort.push({c: item, x: (index+1) * -100}) });
 </script>
 
-<h1 class="full-text">
-    {#each titleWords as w}
-    {w.charAt(0)}<span class="non-capital">{w.substring(1)} &nbsp</span>
-    {/each}
-</h1>
-
-<div class="brief-text">
-    {#each capitals as c}
-    <h1 transition:fly="{{ x: c.x, duration: 2000 }}">{c.c} &nbsp</h1>
+<div class="full-text">
+    {#each capitalsFull as w}
+    <h1 transition:fly="{{ x: w.x, duration: 2000 }}">{w.c.charAt(0)}</h1>
+    <span class="non-capital" transition:fade="{{ duration: 1500 }}">{w.c.substring(1)}{w.x >= -200 ? space : ''}</span>
     {/each}
 </div>
 
-<!-- <h1 class="short-text" transition:fly="{{ x: -500, duration: 2000 }}">{shortTitle}</h1> -->
-<!-- <p transition:fix(fade)="{{ duration: 2000 }}">hola</p> -->
+<div class="brief-text">
+    {#each capitalsShort as c}
+    <h1 transition:fly="{{ x: c.x, duration: 2000 }}">{c.c} &nbsp</h1>
+    {/each}
+</div>
 
 <style>
     @font-face {
@@ -35,15 +34,15 @@
         font-style: normal;
         font-display: swap; /* Read next point */
         unicode-range: U+000-5FF; /* Download only latin glyphs */
-        src: local('Faster'), url('/assets/FasterOne-Regular.ttf') format('truetype');
-        /*src: local('Faster'), url('assets/FasterOne-Regular.ttf') format('truetype'); TODO: Enable this for 'npm run build'*/
+        /*src: local('Faster'), url('/assets/FasterOne-Regular.ttf') format('truetype');*/
+        src: local('Faster'), url('assets/FasterOne-Regular.ttf') format('truetype'); /*TODO: Enable this for 'npm run build'*/
     }
 
 	h1 {
         display: inline-block;
 		color: #ff3e00;
 		text-transform: uppercase;
-		font-size: 4em;
+		font-size: 3em;
 		font-weight: 100;
         font-style: normal;
 		font-family: Faster;
@@ -51,10 +50,13 @@
 	}
 
 	.non-capital {
+        color:rgb(102, 102, 102);
         font-family: Calibri; /*Verdana;*/
+        text-transform: uppercase;
         font-weight: bold;
         font-style: italic;
-        font-size: 0.75em;
+        font-size: 2.2em;
+        margin-left: -0.1em;
     }
 
     .full-text {
