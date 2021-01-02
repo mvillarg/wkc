@@ -1,8 +1,8 @@
 # Welcome to World Kart Championship
 
-This is a concept web-app developed for DevAway_ using [Svelte](https://svelte.dev).
+This is a concept web-app developed for DevAway_ using [Svelte](https://svelte.dev)
 
-It can be accessed directly from [Github preview](https://htmlpreview.github.io/?https://github.com/mvillarg/world-kart-champs/blob/master/public/index.html).
+It can be accessed directly from [Github preview](https://htmlpreview.github.io/?https://github.com/mvillarg/world-kart-champs/blob/master/public/index.html) (note that it usually takes ~10 seconds to load!)
 
 ~Miki
 
