@@ -4,22 +4,16 @@
 		return await res.json();
 	}*/
 
-	export let appName;
+	export let appLongName;
+	export let appShortName;
 	import Header from './Header.svelte';
+	import Content from './Content.svelte';
 	import Footer from './Footer.svelte';
-	import { fly, fade } from 'svelte/transition';
-	import * as json from '../public/assets/data.json';
-
-	let icons = ['🏎', '🏁', '🏆', '🥇', '🥈', '🥉', '🕑', 'ℹ'];
 </script>
 
 <main>
-	<Header longTitle={appName} shortTitle='WKC'></Header>
-
-	<p>{json.data[3].age}</p>
-
-	<span>{icons[1]}</span>
-
+	<Header longTitle={appLongName} shortTitle={appShortName}></Header>
+	<Content/>
 	<Footer author='Miguel Villar' owner='devaway_'></Footer>
 </main>
 
@@ -29,11 +23,6 @@
 		padding: 0.5em 2.0em;
 		max-width: 360px;
 		margin: 0 auto;
-	}
-
-	span {
-		position: absolute;
-		font-size: 5vw;
 	}
 
 	@media (min-width: 640px) {

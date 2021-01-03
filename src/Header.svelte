@@ -23,7 +23,7 @@
 
 <div class="brief-text">
     {#each capitalsShort as c}
-    <h1 transition:fly="{{ x: c.x, duration: 2000 }}">{c.c} &nbsp</h1>
+    <h1 transition:fly="{{ x: c.x, duration: 2000 }}">{c.c}{c.x >= -200 ? space : ''}</h1>
     {/each}
 </div>
 
@@ -34,8 +34,8 @@
         font-style: normal;
         font-display: swap; /* Read next point */
         unicode-range: U+000-5FF; /* Download only latin glyphs */
-        /*src: local('Faster'), url('/assets/FasterOne-Regular.ttf') format('truetype');*/
-        src: local('Faster'), url('assets/FasterOne-Regular.ttf') format('truetype'); /*TODO: Enable this for 'npm run build'*/
+        src: local('Faster'), url('/assets/FasterOne-Regular.ttf') format('truetype');
+        /*src: local('Faster'), url('assets/FasterOne-Regular.ttf') format('truetype'); /*TODO: Enable this for 'npm run build'*/
     }
 
 	h1 {
@@ -47,6 +47,7 @@
         font-style: normal;
 		font-family: Faster;
         margin-top: 0.25em;
+        margin-bottom: 0.25em;
 	}
 
 	.non-capital {
