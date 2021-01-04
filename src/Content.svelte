@@ -7,15 +7,7 @@
     import GeneralRanking from './GeneralRanking.svelte';
     import DriverInfo from './DriverInfo.svelte';
     //import { fly, fade } from 'svelte/transition';
-	import * as json from './data.json';
-
-    let testList = [
-        {avatar: 'http://placehold.it/64x64', name: json.data[0].name, age: 31, team: 'Ferrari'},
-        {avatar: 'http://placehold.it/64x64', name: 'Ramón', age: 31, team: 'McClaren'},
-        {avatar: 'http://placehold.it/64x64', name: 'Miki', age: 31, team: 'Renault'},
-        {avatar: 'http://placehold.it/64x64', name: 'Lisa', age: 31, team: 'Red Bull'},
-        {avatar: 'http://placehold.it/64x64', name: 'Pepe', age: 31, team: 'BMW'},
-    ];
+	import * as clientData from './data.json';
 
     let showDriverInfo = false;
     let driverInfo;
@@ -31,7 +23,7 @@
 </script>
 
 {#if !showDriverInfo}
-<GeneralRanking data={testList} on:message={onDriverSelect}></GeneralRanking>
+<GeneralRanking data={clientData.data} on:message={onDriverSelect}></GeneralRanking>
 {:else}
 <DriverInfo data={driverInfo} on:message={onBack}></DriverInfo>
 {/if}

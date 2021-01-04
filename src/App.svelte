@@ -1,9 +1,4 @@
 <script>
-	/*async function loadData() {
-		const res = await fetch('https://www.dropbox.com/s/ie5fg8mlotjmlzw/drivers_karts_Front.json?dl=0');
-		return await res.json();
-	}*/
-
 	export let appLongName;
 	export let appShortName;
 	import Header from './Header.svelte';
@@ -26,8 +21,6 @@
 	}
 
 	@media (min-width: 640px) {
-		main {
-			max-width: 640px;
-		}
+		main { max-width: 640px; }
 	}
 </style>
