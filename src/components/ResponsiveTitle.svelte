@@ -8,11 +8,12 @@
     const titleChars = shortTitle.split('');
     const capitalsFull = [];
     const capitalsShort = [];
-    const space = '\xa0\xa0\xa0'; // JS's '\xa0' == &nbsp in HTML
+    const space = '\xa0\xa0\xa0'; // JS's '\xa0' == HTML's &nbsp
 
     titleWords.forEach( (item, index) => { capitalsFull.push({c: item, x: (index+1) * -100}) });
     titleChars.forEach( (item, index) => { capitalsShort.push({c: item, x: (index+1) * -100}) });
 </script>
+
 
 <div class="full-text">
     {#each capitalsFull as w}
@@ -27,19 +28,18 @@
     {/each}
 </div>
 
+
 <style>
     @font-face {
         font-family: 'Faster';
         font-weight: 100;
         font-style: normal;
-        font-display: swap; /* Read next point */
-        unicode-range: U+000-5FF; /* Download only latin glyphs */
         src: local('Faster'), url('../FasterOne-Regular.ttf') format('truetype');
     }
 
 	h1 {
         display: inline-block;
-		color: #ff3e00;
+		color: var(--brand-primary-color);
 		text-transform: uppercase;
 		font-size: 3em;
 		font-weight: 100;
@@ -50,7 +50,7 @@
 	}
 
 	.non-capital {
-        color:rgb(102, 102, 102);
+        color: var(--brand-secondary-color);
         font-family: Calibri; /*Verdana;*/
         text-transform: uppercase;
         font-weight: bold;
