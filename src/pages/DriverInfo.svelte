@@ -22,10 +22,10 @@
 </div>
 
 <div class="flex-container flex-wrap">
-    <div class="card-container" in:fly="{{x: -800, duration: 1500}}" out:slide="{{duration:500}}">
+    <div class="card-container" in:fly="{{x: -100, duration: 1500}}" out:slide="{{duration:500}}">
         <DriverCard {data}/>
     </div>
-    <div class="table-container" in:fly="{{x: 800, duration: 1500}}" out:slide="{{duration:500}}">
+    <div class="table-container" in:fly="{{x: 100, duration: 1500}}" out:slide="{{duration:500}}">
         <ScoreTable rowData={data.races} columnData={[
             { columnTitle: 'Race',     propertyName: 'name',     format: 'text', sizeProportion: 1 },
             { columnTitle: 'Position', propertyName: 'position', format: 'rank', sizeProportion: 1 },
