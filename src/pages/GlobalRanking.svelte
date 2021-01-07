@@ -1,7 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
     import { onMount } from 'svelte';
-    import { fly, slide} from 'svelte/transition';
+    import { fly, slide, fade} from 'svelte/transition';
 
     import ScoreTable from '../components/ScoreTable.svelte';
     import Subtitle from '../components/Subtitle.svelte';
@@ -19,7 +19,7 @@
 	const dispatch = createEventDispatcher();
 
 	function onDriverSelect(driver) {
-		dispatch('message', {...driver});
+        dispatch('message', {...driver});
     }
 
     function sortDriversTable() {
@@ -59,14 +59,12 @@
 </div>
 
 {#if raceId === selectId}
-<div in:slide="{{duration: 2500}}" out:slide="{{duration: 500}}">
 <ScoreTable rowData={data} columnData={[
     { columnTitle: '',     propertyName: 'picture', format: 'image', sizeProportion: 1, alt: "Driver's picture" },
     { columnTitle: 'Rank', propertyName: undefined, format: 'rank',  sizeProportion: 1 },
     { columnTitle: 'Name', propertyName: 'name',    format: 'text',  sizeProportion: 3 },
     { columnTitle: 'Team', propertyName: 'team',    format: 'text',  sizeProportion: 2, autoHide: true },
     ]} onRowClickCallback={onDriverSelect} roundedCornerStyle={true} zebraRowStyle={true}/>
-</div>
 {:else}
 {updateRaceId()}
 {/if}

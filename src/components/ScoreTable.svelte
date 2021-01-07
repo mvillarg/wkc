@@ -1,4 +1,6 @@
 <script>
+    import { fly, slide, fade, blur} from 'svelte/transition';
+
     export let rowData;
     export let columnData;
     export let roundedCornerStyle = true;
@@ -37,7 +39,7 @@
 </script>
 
 
-<div class="row header">
+<div in:fly="{{x: -200, duration: 1000}}" out:fade="{{duration: 500}}" class="row header">
     {#each columnData as column}
     <div class="column"
          class:auto-hide={column.autoHide}
@@ -47,7 +49,7 @@
     {/each}
 </div>
 {#each rowData as rowItem, i}
-<div class="{getRowStyle(i, rowData.length)}" on:click={onRowClick(rowItem)}>
+<div in:fly="{{delay: 50 * (i+1), x: 100, duration: 100}}" out:fade="{{duration: 500}}" class="{getRowStyle(i, rowData.length)}" on:click={onRowClick(rowItem)}>
     {#each columnData as column}   
     <div class="column"
         class:auto-hide={column.autoHide}

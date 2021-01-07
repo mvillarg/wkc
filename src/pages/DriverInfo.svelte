@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import { fly, slide} from 'svelte/transition';
+    import { fly, slide, fade} from 'svelte/transition';
     import DriverCard from '../components/DriverCard.svelte';
     import ScoreTable from '../components/ScoreTable.svelte';
     import Subtitle from '../components/Subtitle.svelte';
@@ -11,7 +11,7 @@
     const dispatch = createEventDispatcher();
 
 	function onBack() {
-		dispatch('message', {action: 'back'});
+        dispatch('message', {action: 'back'});
 	}
 </script>
 
@@ -22,10 +22,10 @@
 </div>
 
 <div class="flex-container flex-wrap">
-    <div class="card-container" in:fly="{{x: -400, duration: 1000}}" out:slide="{{duration:500}}">
+    <div class="card-container" in:fly="{{x: -800, duration: 1500}}" out:slide="{{duration:500}}">
         <DriverCard {data}/>
     </div>
-    <div class="table-container" in:fly="{{x: 1000, duration: 1000}}" out:slide="{{duration:500}}">
+    <div class="table-container" in:fly="{{x: 800, duration: 1500}}" out:slide="{{duration:500}}">
         <ScoreTable rowData={data.races} columnData={[
             { columnTitle: 'Race',     propertyName: 'name',     format: 'text', sizeProportion: 1 },
             { columnTitle: 'Position', propertyName: 'position', format: 'rank', sizeProportion: 1 },
