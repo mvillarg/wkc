@@ -8,13 +8,13 @@
     import ButtonDropdown from '../components/ButtonDropdown.svelte';
     
     export let data;
-    
+    export let raceId = -1; // -1 == Global Ranking
+
     const raceList = data[0].races.map((item) => { return item.name });
     raceList.unshift('Global');
 
-    let raceId = -1; // -1 == Global Ranking
     let selectId = raceId;
-    let rankingTitle = prefixRankingTitle + raceList[0];
+    let rankingTitle = prefixRankingTitle + raceList[raceId + 1];
     const prefixRankingTitle = 'Ranking / ';
 	const dispatch = createEventDispatcher();
 
