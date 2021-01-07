@@ -2,7 +2,7 @@
 
 This is a concept web-app developed for DevAway_ using [Svelte](https://svelte.dev)
 
-It can be accessed directly from [Github preview](https://mvillarg.github.io/wkc/) (note that it usually takes ~10 seconds to load!)
+It can be accessed directly from [Github preview](https://mvillarg.github.io/wkc/)
 
 ~Miki
 
@@ -49,36 +49,4 @@ Or remove the script via:
 
 ```bash
 rm scripts/setupTypeScript.js
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
 ```
